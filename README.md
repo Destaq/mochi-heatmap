@@ -1,6 +1,6 @@
 # mochi-heatmap
 
-A heatmap graph that integrates with [Mochi Cards](https://mochi.cards) to visualize your historical flashcard reviews and pending reviews.
+A heatmap graph that integrates with [Mochi Cards](https://mochi.cards) to visualize your historical and pending flashcard reviews.
 
 ![Demonstration](images/demo.png)
 
