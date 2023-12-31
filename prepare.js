@@ -14,6 +14,7 @@ async function fetchMochiPage(API_KEY, bookmark) {
 			}
 		});
 	if (!response.ok) {
+		document.getElementById("loading").style.display = "none";
 		alert("Error fetching data from Mochi. Please check your API key and try again.");
 	} else {
 		return await response.json();
@@ -77,6 +78,8 @@ async function formatDateObj(dateObj) {
 
 async function run(API_KEY, callback) {
 	let dateObj = {};
+	// Tell the user we're fetching data.
+	document.getElementById("loading").style.display = "block";
 	let data = await fetchMochiPage(API_KEY);
 	if (data === undefined) {
 		return;
@@ -87,5 +90,7 @@ async function run(API_KEY, callback) {
 		await parseFetchedData(data, dateObj);
 	}
 	dateObj = await formatDateObj(dateObj);
+	// Tell the user we're done fetching data.
+	document.getElementById("loading").style.display = "none";
 	return callback(dateObj);
 }

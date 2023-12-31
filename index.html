@@ -9,6 +9,46 @@
     <script src="dependencies/http_unpkg.com_cal-heatmap_dist_plugins_Tooltip.js"></script>
     <script src="dependencies/http_unpkg.com_cal-heatmap_dist_plugins_LegendLite.js"></script>
     <script src="dependencies/http_unpkg.com_cal-heatmap_dist_plugins_CalendarLabel.js"></script>
+	<style>
+		.lds-ring {
+			display: none;
+			position: relative;
+			width: 24px;
+			height: 24px;
+			margin-right: auto;
+			margin-left: auto;
+			margin-top: 0.5em;
+		  }
+		  .lds-ring div {
+			box-sizing: border-box;
+			display: block;
+			position: absolute;
+			width: 24px;
+			height: 24px;
+			margin: 2px;
+			border: 2px solid #fff;
+			border-radius: 50%;
+			animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+			border-color: #000000 transparent transparent transparent;
+		  }
+		  .lds-ring div:nth-child(1) {
+			animation-delay: -0.45s;
+		  }
+		  .lds-ring div:nth-child(2) {
+			animation-delay: -0.3s;
+		  }
+		  .lds-ring div:nth-child(3) {
+			animation-delay: -0.15s;
+		  }
+		  @keyframes lds-ring {
+			0% {
+			  transform: rotate(0deg);
+			}
+			100% {
+			  transform: rotate(360deg);
+			}
+		  }
+	</style>
     <title>
         Mochi Review Heatmap
     </title>
@@ -20,6 +60,7 @@
     <div style="margin-bottom: 1rem">
         <label for="apiKey">Mochi API Key: </label>
         <input type="text" id="apiKey" onkeydown="attemptActivateRepaint(this)">
+		<div class="lds-ring" id="loading"><div></div><div></div><div></div><div></div></div>
     </div>
     <div id="ex-day" class="margin-bottom--md"></div>
     <div style="float: left">
